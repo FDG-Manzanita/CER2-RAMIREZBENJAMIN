@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <p>Estas buscando: <strong>{{query}}</strong></p>
+    {% if Correos %}
+        <p>Correos encontrados: {{Correos|length}} correos</p>
+    <table class="table-table bordered">
+    <thead>
+        <tr>
+            <td>Emisor</td>
+            <td>Receptor</td>
+            <td>Departamento</td>
+            <td>Edificio</td>
+            <td>Estado</td>
+            <td>Fecha</td>
+        </tr>
+    </thead>
+        <tbody>
+        {%for correo in Correos%}
+        <tr>
+            <td>{{correo.emisor}}</td>
+            <td>{{correo.receptor}}</td>
+            <td>{{correo.departamento}}</td>
+            <td>{{correo.edificio}}</td>
+            <td>{{correo.Estado}}</td>
+            <td>{{correo.fecha}}</td>
+        </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+    {%else%}
+        <p>No hay correos encontrados</p>
+    {% endif %}
+
+</body>
+
+</html>
